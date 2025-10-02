@@ -1150,6 +1150,98 @@ body {
         top: 1px;
     }
     
+    /* Cosplays responsive - Tablet (70% del tamaño desktop) */
+    .costume-pikachu {
+        font-size: 2rem;
+    }
+    
+    .costume-pikachu.active {
+        width: 100px;  /* ~70% de 140px */
+        height: 126px; /* ~70% de 180px */
+    }
+    
+    .costume-totoro {
+        width: 50px;   /* ~70% de 70px */
+        height: 56px;  /* ~70% de 80px */
+        top: -14px;
+    }
+    
+    .costume-totoro.active {
+        width: 210px;  /* ~70% de 300px */
+        height: 210px; /* ~70% de 300px */
+        top: -42px;
+    }
+    
+    .costume-naruto {
+        width: 42px;   /* ~70% de 60px */
+        height: 21px;  /* ~70% de 30px */
+        top: -7px;
+    }
+    
+    .costume-naruto.active {
+        width: 105px;  /* ~70% de 150px */
+        height: 105px; /* ~70% de 150px */
+        top: -42px;
+    }
+    
+    .costume-goku {
+        width: 45px;   /* ~70% de 65px */
+        height: 56px;  /* ~70% de 80px */
+        top: -18px;
+    }
+    
+    .costume-goku.active {
+        width: 266px;  /* ~70% de 380px */
+        height: 126px; /* ~70% de 180px */
+        top: -84px;
+    }
+    
+    /* Cosplays responsive - Tablet */
+    .costume-pikachu {
+        font-size: 2rem;
+    }
+    
+    .costume-pikachu.active {
+        width: 100px;  /* ~70% de 140px */
+        height: 126px; /* ~70% de 180px */
+    }
+    
+    .costume-totoro {
+        width: 50px;   /* ~70% de 70px */
+        height: 56px;  /* ~70% de 80px */
+        top: -14px;
+    }
+    
+    .costume-totoro.active {
+        width: 210px;  /* ~70% de 300px */
+        height: 210px; /* ~70% de 300px */
+        top: -42px;
+    }
+    
+    .costume-naruto {
+        width: 42px;   /* ~70% de 60px */
+        height: 21px;  /* ~70% de 30px */
+        top: -7px;
+    }
+    
+    .costume-naruto.active {
+        width: 105px;  /* ~70% de 150px */
+        height: 105px; /* ~70% de 150px */
+        top: -42px;
+    }
+    
+    .costume-goku {
+        width: 45px;   /* ~70% de 65px */
+        height: 56px;  /* ~70% de 80px */
+        top: -18px;
+    }
+    
+    .costume-goku.active {
+        width: 266px;  /* ~70% de 380px */
+        height: 126px; /* ~70% de 180px */
+        top: -84px;
+    }
+    
     .kawa-name {
         font-size: 1.3rem;
     }
@@ -1267,6 +1359,52 @@ body {
         border-radius: 0 0 6px 6px;
         top: 1px;
         bottom: 33px;
+    }
+    
+    /* Cosplays responsive - Móvil (50% del tamaño desktop) */
+    .costume-pikachu {
+        font-size: 1.5rem;
+    }
+    
+    .costume-pikachu.active {
+        width: 70px;   /* ~50% de 140px */
+        height: 90px;  /* ~50% de 180px */
+    }
+    
+    .costume-totoro {
+        width: 35px;   /* ~50% de 70px */
+        height: 40px;  /* ~50% de 80px */
+        top: -10px;
+    }
+    
+    .costume-totoro.active {
+        width: 150px;  /* ~50% de 300px */
+        height: 150px; /* ~50% de 300px */
+        top: -30px;
+    }
+    
+    .costume-naruto {
+        width: 30px;   /* ~50% de 60px */
+        height: 15px;  /* ~50% de 30px */
+        top: -5px;
+    }
+    
+    .costume-naruto.active {
+        width: 75px;   /* ~50% de 150px */
+        height: 75px;  /* ~50% de 150px */
+        top: -30px;
+    }
+    
+    .costume-goku {
+        width: 32px;   /* ~50% de 65px */
+        height: 40px;  /* ~50% de 80px */
+        top: -12px;
+    }
+    
+    .costume-goku.active {
+        width: 190px;  /* ~50% de 380px */
+        height: 90px;  /* ~50% de 180px */
+        top: -60px;
     }
     
     .mejilla {
