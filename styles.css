@@ -732,12 +732,75 @@ body {
     background: var(--light-color);
 }
 
-/* Carteles */
+/* Carrusel de Carteles */
+.carousel-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.carteles-carousel {
+    flex: 1;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: var(--shadow-light);
+}
+
 .carteles-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    justify-items: center;
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+    gap: 0;
+    width: 100%;
+}
+
+.carousel-btn {
+    background: var(--gradient-1);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-light);
+    z-index: 2;
+}
+
+.carousel-btn:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-medium);
+}
+
+.carousel-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: scale(1);
+}
+
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.carousel-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ddd;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.carousel-indicator.active {
+    background: var(--accent-color);
+    transform: scale(1.2);
 }
 
 .cartel-card {
@@ -751,6 +814,8 @@ body {
     max-width: 400px;
     display: flex;
     flex-direction: column;
+    margin: 0 auto;
+    flex-shrink: 0;
 }
 
 .cartel-card:hover {
@@ -1270,13 +1335,28 @@ body {
         font-size: 1.1rem;
     }
     
-    .carteles-container {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+    .carousel-wrapper {
+        gap: 0.5rem;
+    }
+    
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
     }
     
     .cartel-card {
-        max-width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    
+    .carousel-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+    
+    .carousel-wrapper {
+        margin: 1rem 0;
     }
     
     .cartel-image.vertical {

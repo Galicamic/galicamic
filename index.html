@@ -135,8 +135,25 @@
         <section id="carteles" class="carteles-section">
             <div class="container">
                 <h2 class="section-title">Carteles Promocionales</h2>
-                <div class="carteles-container" id="cartelesContainer">
-                    <!-- Los carteles se cargarán dinámicamente aquí -->
+                <div class="carousel-wrapper">
+                    <button class="carousel-btn carousel-btn-prev" id="carouselPrev">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                        </svg>
+                    </button>
+                    <div class="carteles-carousel" id="cartelesCarousel">
+                        <div class="carteles-container" id="cartelesContainer">
+                            <!-- Los carteles se cargarán dinámicamente aquí -->
+                        </div>
+                    </div>
+                    <button class="carousel-btn carousel-btn-next" id="carouselNext">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="carousel-indicators" id="carouselIndicators">
+                    <!-- Los indicadores se generarán dinámicamente -->
                 </div>
             </div>
         </section>

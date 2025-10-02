@@ -78,6 +78,10 @@ function initializeApp() {
 }
 
 // === GESTIÓN DE CARTELES ===
+let currentSlide = 0;
+let totalSlides = 0;
+let slideInterval;
+
 function cargarCarteles() {
     const container = document.getElementById('cartelesContainer');
     
@@ -86,12 +90,16 @@ function cargarCarteles() {
     // Ordenar carteles por fecha (más reciente primero)
     const cartelesOrdenados = [...cartelesData].sort((a, b) => new Date(b.date) - new Date(a.date));
     
+    totalSlides = cartelesOrdenados.length;
     container.innerHTML = '';
     
     cartelesOrdenados.forEach((cartel, index) => {
         const cartelElement = createCartelElement(cartel, index);
         container.appendChild(cartelElement);
     });
+    
+    // Inicializar carrusel
+    initCarousel();
     
     // Animar entrada de carteles
     animateElements('.cartel-card');
@@ -117,6 +125,135 @@ function createCartelElement(cartel, index) {
     `;
     
     return div;
+}
+
+// === CARRUSEL FUNCTIONALITY ===
+function initCarousel() {
+    if (totalSlides === 0) return;
+    
+    const carousel = document.querySelector('.carousel-container');
+    const indicators = document.querySelector('.carousel-indicators');
+    const prevBtn = document.querySelector('.carousel-btn.prev');
+    const nextBtn = document.querySelector('.carousel-btn.next');
+    
+    if (!carousel || !indicators || !prevBtn || !nextBtn) return;
+    
+    // Crear indicadores
+    indicators.innerHTML = '';
+    for (let i = 0; i < totalSlides; i++) {
+        const indicator = document.createElement('button');
+        indicator.className = `carousel-indicator ${i === 0 ? 'active' : ''}`;
+        indicator.addEventListener('click', () => {
+            stopAutoPlay();
+            goToSlide(i);
+        });
+        indicators.appendChild(indicator);
+    }
+    
+    // Event listeners para botones
+    prevBtn.addEventListener('click', () => {
+        stopAutoPlay();
+        prevSlide();
+    });
+    nextBtn.addEventListener('click', () => {
+        stopAutoPlay();
+        nextSlide();
+    });
+    
+    // Pausar auto-play al hover
+    carousel.addEventListener('mouseenter', stopAutoPlay);
+    carousel.addEventListener('mouseleave', startAutoPlay);
+    
+    // Touch/swipe support
+    let startX = 0;
+    let endX = 0;
+    
+    carousel.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+    });
+    
+    carousel.addEventListener('touchend', (e) => {
+        endX = e.changedTouches[0].clientX;
+        handleSwipe();
+    });
+    
+    function handleSwipe() {
+        const threshold = 50;
+        const diff = startX - endX;
+        
+        if (Math.abs(diff) > threshold) {
+            if (diff > 0) {
+                nextSlide();
+            } else {
+                prevSlide();
+            }
+        }
+    }
+    
+    // Inicializar vista
+    updateCarousel();
+    
+    // Auto-play (opcional)
+    startAutoPlay();
+}
+
+function prevSlide() {
+    currentSlide = currentSlide > 0 ? currentSlide - 1 : totalSlides - 1;
+    updateCarousel();
+}
+
+function nextSlide() {
+    currentSlide = currentSlide < totalSlides - 1 ? currentSlide + 1 : 0;
+    updateCarousel();
+}
+
+function goToSlide(index) {
+    currentSlide = index;
+    updateCarousel();
+}
+
+function updateCarousel() {
+    const container = document.getElementById('cartelesContainer');
+    const indicators = document.querySelectorAll('.carousel-indicator');
+    
+    if (!container) return;
+    
+    // Calcular el ancho total del carrusel basado en el número de slides
+    const totalWidth = totalSlides * 100;
+    container.style.width = `${totalWidth}%`;
+    
+    // Cada cartel debe ocupar una fracción del total
+    const cards = container.querySelectorAll('.cartel-card');
+    cards.forEach(card => {
+        card.style.width = `${100 / totalSlides}%`;
+    });
+    
+    // Actualizar posición del carrusel
+    const translateX = -currentSlide * (100 / totalSlides);
+    container.style.transform = `translateX(${translateX}%)`;
+    
+    // Actualizar indicadores
+    indicators.forEach((indicator, index) => {
+        indicator.classList.toggle('active', index === currentSlide);
+    });
+    
+    // Reiniciar auto-play
+    restartAutoPlay();
+}
+
+function startAutoPlay() {
+    slideInterval = setInterval(nextSlide, 4000); // Cambiar cada 4 segundos
+}
+
+function stopAutoPlay() {
+    if (slideInterval) {
+        clearInterval(slideInterval);
+    }
+}
+
+function restartAutoPlay() {
+    stopAutoPlay();
+    startAutoPlay();
 }
 
 // Manejar carga de imagen y detectar orientación
