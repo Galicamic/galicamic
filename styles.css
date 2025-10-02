@@ -1,0 +1,1355 @@
+/* Reset y configuración base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Colores temáticos anime/manga */
+    --primary-color: #ff6b6b;
+    --secondary-color: #4ecdc4;
+    --accent-color: #ffe66d;
+    --dark-color: #2c3e50;
+    --light-color: #ecf0f1;
+    --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    
+    /* Tipografía */
+    --font-primary: 'Orbitron', sans-serif;
+    --font-secondary: 'Noto Sans JP', sans-serif;
+    
+    /* Sombras */
+    --shadow-light: 0 2px 10px rgba(0,0,0,0.1);
+    --shadow-medium: 0 4px 20px rgba(0,0,0,0.15);
+    --shadow-heavy: 0 8px 30px rgba(0,0,0,0.2);
+    
+    /* Transiciones */
+    --transition-fast: 0.3s ease;
+    --transition-medium: 0.5s ease;
+    --transition-slow: 0.8s ease;
+}
+
+body {
+    font-family: var(--font-secondary);
+    line-height: 1.6;
+    color: var(--dark-color);
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header y Navegación */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    box-shadow: var(--shadow-light);
+    transition: var(--transition-fast);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    display: flex;
+    align-items: baseline;
+    gap: 0.8rem;
+    flex-wrap: nowrap;
+}
+
+.logo h1 {
+    font-family: var(--font-primary);
+    font-size: 1.8rem;
+    font-weight: 900;
+    background: var(--gradient-1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.logo h2 {
+    font-family: var(--font-secondary);
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--dark-color);
+    margin: 0;
+    opacity: 0.8;
+    white-space: nowrap;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--dark-color);
+    font-weight: 500;
+    transition: var(--transition-fast);
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-1);
+    transition: var(--transition-fast);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: var(--dark-color);
+    margin: 3px 0;
+    transition: var(--transition-fast);
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    background: var(--gradient-1);
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    margin-top: 80px; /* Espacio para el nav fixed */
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.hero-content {
+    color: white;
+    z-index: 2;
+}
+
+.hero-title {
+    font-family: var(--font-primary);
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.hero-date {
+    margin-bottom: 2rem;
+}
+
+.date-text {
+    font-size: 1.1rem;
+    background: rgba(255,255,255,0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+}
+
+.cta-button {
+    background: var(--gradient-2);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    box-shadow: var(--shadow-medium);
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-heavy);
+}
+
+/* Animaciones flotantes */
+.hero-animation {
+    position: relative;
+    height: 400px;
+}
+
+.floating-elements {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.element {
+    position: absolute;
+    font-size: 2rem;
+    animation: float 6s ease-in-out infinite;
+}
+
+.element-1 {
+    top: 20%;
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.element-2 {
+    top: 60%;
+    left: 80%;
+    animation-delay: 1s;
+}
+
+.element-3 {
+    top: 80%;
+    left: 30%;
+    animation-delay: 2s;
+}
+
+.element-4 {
+    top: 30%;
+    left: 70%;
+    animation-delay: 3s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+/* === KAWA-CHAN - RANA COSPLAYER INTERACTIVA === */
+.kawa-chan-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 3;
+}
+
+.kawa-chan {
+    position: relative;
+    width: 180px;
+    height: 160px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    animation: kawaFloat 4s ease-in-out infinite;
+}
+
+.kawa-chan:hover {
+    transform: scale(1.15);
+    animation-play-state: paused;
+}
+
+/* Nueva estructura: 3 píldoras formando una 'U' + cuerpo esférico */
+.rana-body {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/* Esfera del cuerpo detrás de la cabeza */
+.cuerpo-esfera {
+    position: absolute;
+    width: 84px;
+    height: 84px;
+    background: #4CAF50;
+    border: 3px solid #2E7D32;
+    border-radius: 50%;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 0;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Píldora vertical izquierda */
+.rana-body::before {
+    content: '';
+    position: absolute;
+    width: 42px;
+    height: 80px;
+    background: #4CAF50;
+    border-radius: 25px;
+    top: 20px;
+    left: 27px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Píldora vertical derecha */
+.rana-body::after {
+    content: '';
+    position: absolute;
+    width: 42px;
+    height: 80px;
+    background: #4CAF50;
+    border-radius: 25px;
+    top: 20px;
+    right: 27px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+
+
+/* Píldora horizontal que une las verticales */
+.pildora-horizontal {
+    position: absolute;
+    width: 140px;
+    height: 45px;
+    background: #4CAF50;
+    border-radius: 25px;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Ojos en los picos de la 'U' */
+.ojo {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: #FFFFFF;
+    border-radius: 50%;
+    border: 4px solid #2E7D32;
+    top: 10px;
+    animation: parpadeo 4s infinite;
+    z-index: 3;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.ojo-izq { left: 15px; }
+.ojo-der { right: 15px; }
+
+.pupila {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    background: #8B4513;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.1s ease;
+}
+
+.brillo {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background: #FFFFFF;
+    border-radius: 50%;
+    top: 25%;
+    right: 25%;
+    opacity: 0.9;
+}
+
+
+
+/* Boca sonriente con líneas curvas */
+.boca {
+    position: absolute;
+    width: 16px;
+    height: 8px;
+    border: 3px solid #2E7D32;
+    border-top: none;
+    border-radius: 0 0 16px 16px;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    background: transparent;
+}
+
+/* Línea roja interior (boca abierta) */
+.boca::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 5px;
+    border: 2px solid #FF1744;
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    top: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: transparent;
+}
+
+/* Mejillas en las píldoras verticales */
+.mejilla {
+    position: absolute;
+    width: 15px;
+    height: 12px;
+    background: #FF6B9D;
+    border-radius: 50%;
+    top: 70px;
+    opacity: 0.8;
+    animation: sonrojo 3s ease-in-out infinite;
+    z-index: 2;
+}
+
+.mejilla-izq { left: 25px; }
+.mejilla-der { right: 25px; }
+
+
+
+/* Patitas */
+.pata {
+    position: absolute;
+    width: 25px;
+    height: 15px;
+    background: #388e3c;
+    border-radius: 50%;
+    bottom: -5px;
+    animation: patadeo 2s ease-in-out infinite;
+}
+
+.pata-izq { 
+    left: 45px; 
+    animation-delay: 0.5s;
+}
+.pata-der { 
+    right: 45px;
+}
+
+/* Disfraces que cambian con scroll */
+.disfraz {
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2.5rem;
+    transition: all 0.5s ease;
+    opacity: 1;
+    z-index: 10; /* Por encima de la rana */
+}
+
+/* Resaltar disfraces en hover */
+.kawa-chan:hover .disfraz {
+    transform: translateX(-50%) scale(1.1);
+}
+
+.disfraz > div {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: all 0.5s ease;
+    /* Estilos base para imágenes */
+    width: 60px;
+    height: 60px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.disfraz > div.active {
+    opacity: 1;
+    transform: translateX(-50%) scale(1.2);
+}
+
+/* ESTILOS INDIVIDUALES PARA CADA COSPLAY */
+/* Ajusta estos valores para cada disfraz */
+
+/* Cosplay predeterminado */
+.costume-default {
+    font-size: 2.5rem; /* Solo para emojis */
+    width: auto;
+    height: auto;
+    background: none;
+}
+
+/* Cosplay Pikachu - Ajusta estos valores */
+.costume-pikachu {
+    /* Descomenta estas líneas para usar imagen */
+    /* background-image: url('assets/images/pikachucosplay.png'); */
+    background-image: url('https://freepngimg.com/save/172421-filter-snapchat-face-hq-image-free/1200x1581');
+    top: -15px;         /* Posición vertical (negativo = arriba) */
+    left: 48%;          /* Posición horizontal (50% = centrado) */
+    
+    /* Comenta esta línea cuando uses imagen */
+    font-size: 2.5rem; /* Solo para emojis */
+}
+
+/* Cosplay Pikachu cuando está activo */
+.costume-pikachu.active {
+    height: 180px;      /* Height específico cuando está activo */
+    width: 140px;
+}
+
+/* Cosplay Totoro - Ajusta estos valores */
+.costume-totoro {
+    font-size: 2.5rem; /* Solo para emojis */
+    background-image: url('assets/images/totoro.png');
+    width: 70px;
+    height: 80px;
+    top: -20px;
+    left: 48%;
+    
+}
+.costume-totoro.active {
+
+    width: 300px;
+    height: 300px;
+    top: -60px;
+    left: 48%;
+    
+}
+.costume-totoro {
+    font-size: 2.5rem; /* Solo para emojis */
+    background-image: url('assets/images/totoro.png');
+    width: 70px;
+    height: 80px;
+    top: -20px;
+    left: 48%;
+    
+}
+
+/* Cosplay Naruto - Ajusta estos valores */
+.costume-naruto {
+    background-image: url('https://www.pngall.com/wp-content/uploads/15/Naruto-Headband-PNG-Cutout.png');
+    width: 60px;
+    height: 30px;
+    top: -10px;
+    left: 50%;
+}
+
+/* Cosplay Naruto cuando está activo */
+.costume-naruto.active {
+    width: 150px;
+    height: 150px;
+    top: -60px;
+}
+
+/* Cosplay Goku - Ajusta estos valores */
+.costume-goku {
+    /* Agrega tu imagen de Goku aquí */
+    background-image: url('https://www.pngall.com/wp-content/uploads/14/Goku-Hair-PNG.png'); /* Cambia por tu imagen */
+    width: 65px;
+    height: 80px;
+    top: -25px;
+    left: 50%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Cosplay Goku cuando está activo */
+.costume-goku.active {
+    width: 380px;
+    height: 180px;
+    top: -120px;
+}
+
+
+
+.kawa-chan:hover .ojo {
+    transform: scale(1.1);
+}
+
+.kawa-chan:hover .pupila {
+    transform: scale(1.2);
+}
+
+.kawa-chan:hover .mejilla {
+    background: #FF8A95;
+    opacity: 1;
+}
+
+/* Tooltip mensaje */
+.kawa-chan::after {
+    content: 'Hazme clic para cambiarme de cosplay!';
+    position: absolute;
+    top: -45px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.8);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+}
+
+.kawa-chan:hover::after {
+    opacity: 1;
+}
+
+
+
+/* Información de Kawa-Chan */
+.kawa-info {
+    margin-top: 20px;
+    text-align: center;
+    color: white;
+}
+
+.kawa-name {
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0 0 5px 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.kawa-desc {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin: 0;
+    animation: parpadeoTexto 2s ease-in-out infinite;
+}
+
+/* Animaciones */
+@keyframes kawaFloat {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(2deg); }
+}
+
+@keyframes parpadeo {
+    0%, 90%, 100% { transform: scaleY(1); }
+    95% { transform: scaleY(0.1); }
+}
+
+@keyframes sonrojo {
+    0%, 100% { opacity: 0.7; transform: scale(1); }
+    50% { opacity: 0.9; transform: scale(1.1); }
+}
+
+@keyframes sonrojoIntensо {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
+}
+
+@keyframes patadeo {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+}
+
+
+
+
+
+@keyframes parpadeoTexto {
+    0%, 50%, 100% { opacity: 0.9; }
+    25%, 75% { opacity: 0.6; }
+}
+
+@keyframes sparkle {
+    0% { 
+        opacity: 1; 
+        transform: translateY(0) scale(0); 
+    }
+    50% { 
+        opacity: 1; 
+        transform: translateY(-20px) scale(1.2); 
+    }
+    100% { 
+        opacity: 0; 
+        transform: translateY(-40px) scale(0); 
+    }
+}
+
+@keyframes bounceIn {
+    0% { 
+        opacity: 0; 
+        transform: translate(-50%, -50%) scale(0.3); 
+    }
+    50% { 
+        opacity: 1; 
+        transform: translate(-50%, -50%) scale(1.1); 
+    }
+    100% { 
+        opacity: 1; 
+        transform: translate(-50%, -50%) scale(1); 
+    }
+}
+
+/* Secciones */
+.section-title {
+    font-family: var(--font-primary);
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    background: var(--gradient-1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.carteles-section, .noticias-section, .info-section {
+    padding: 5rem 0;
+}
+
+.carteles-section {
+    background: var(--light-color);
+}
+
+/* Carteles */
+.carteles-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+}
+
+.cartel-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow-light);
+    transition: var(--transition-fast);
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.cartel-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-heavy);
+}
+
+.cartel-image {
+    width: 100%;
+    position: relative;
+    background: var(--gradient-3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: white;
+    min-height: 200px;
+    overflow: hidden;
+}
+
+.cartel-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    border-radius: 0;
+}
+
+/* Para carteles muy verticales, limitar altura máxima */
+.cartel-image.vertical {
+    max-height: 500px;
+}
+
+.cartel-image.vertical img {
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+    object-position: center;
+}
+
+.cartel-content {
+    padding: 1.5rem;
+}
+
+.cartel-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.cartel-date {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.cartel-description {
+    color: #555;
+    line-height: 1.5;
+}
+
+.cartel-new {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--primary-color);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* Noticias */
+.noticias-container {
+    display: grid;
+    gap: 2rem;
+}
+
+.noticia-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: var(--shadow-light);
+    transition: var(--transition-fast);
+    border-left: 4px solid var(--primary-color);
+}
+
+.noticia-card:hover {
+    box-shadow: var(--shadow-medium);
+    transform: translateX(5px);
+}
+
+.noticia-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.noticia-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+.noticia-date {
+    color: #666;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.noticia-content {
+    color: #555;
+    line-height: 1.6;
+}
+
+.noticia-category {
+    display: inline-block;
+    background: var(--gradient-3);
+    color: white;
+    padding: 0.2rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    margin-top: 1rem;
+}
+
+.load-more-btn {
+    background: var(--gradient-1);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: block;
+    margin: 3rem auto 0;
+    transition: var(--transition-fast);
+}
+
+.load-more-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+/* Información */
+.info-section {
+    background: var(--light-color);
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.info-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: var(--shadow-light);
+    transition: var(--transition-fast);
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+.info-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.info-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--dark-color);
+}
+
+.info-card p {
+    color: #666;
+}
+
+/* Footer */
+.footer {
+    background: var(--dark-color);
+    color: var(--light-color);
+    padding: 3rem 0 1rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3, .footer-section h4 {
+    margin-bottom: 1rem;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+    color: var(--light-color);
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+.footer-section a:hover {
+    color: var(--accent-color);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-link {
+    padding: 0.5rem 1rem;
+    background: var(--gradient-1);
+    border-radius: 20px;
+    transition: var(--transition-fast);
+}
+
+/* Estilos para el enlace de WhatsApp */
+.contact-info {
+    margin-top: 1rem;
+}
+
+.whatsapp-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #25D366;
+    color: white;
+    padding: 0.8rem 1.2rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 500;
+    margin-top: 0.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+.whatsapp-link:hover {
+    background: #128C7E;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+    color: white;
+}
+
+.whatsapp-link svg {
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-link svg path {
+    fill: white; /* Icono blanco para contraste con fondo verde */
+}
+
+.whatsapp-link:hover svg {
+    transform: scale(1.1);
+}
+
+.whatsapp-link:hover svg path {
+    fill: #25D366; /* Icono verde cuando hover (fondo más oscuro) */
+}
+
+.social-link:hover {
+    transform: translateY(-2px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid #444;
+    color: #999;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .carteles-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+    
+    .nav-menu {
+        display: none;
+    }
+    
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .nav-container {
+        padding: 1rem;
+    }
+    
+    .logo {
+        gap: 0.5rem;
+    }
+    
+    .logo h1 {
+        font-size: 1.5rem;
+    }
+    
+    .logo h2 {
+        font-size: 0.9rem;
+    }
+    
+    /* Kawa-Chan responsive - tablet */
+    .kawa-chan {
+        width: 140px;
+        height: 120px;
+    }
+    
+    .rana-body::before,
+    .rana-body::after {
+        width: 34px;
+        height: 65px;
+        top: 15px;
+    }
+    
+    .rana-body::before { left: 22px; }
+    .rana-body::after { right: 22px; }
+    
+    .pildora-horizontal {
+        width: 110px;
+        height: 35px;
+        bottom: 30px;
+    }
+    
+    .cuerpo-esfera {
+        width: 67px;
+        height: 67px;
+        bottom: -18px;
+        border-width: 2px;
+    }
+    
+    .ojo {
+        width: 35px;
+        height: 35px;
+        border-width: 2px;
+        top: 5px;
+    }
+    
+    .ojo-izq { left: 8px; }
+    .ojo-der { right: 8px; }
+    
+    .pupila {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .brillo {
+        width: 9px;
+        height: 9px;
+    }
+    
+    .boca {
+        width: 14px;
+        height: 7px;
+        border-width: 2px;
+        border-radius: 0 0 14px 14px;
+        bottom: 38px;
+    }
+    
+    .boca::after {
+        width: 10px;
+        height: 5px;
+        border-width: 1px;
+        border-radius: 0 0 10px 10px;
+        top: 1px;
+    }
+    
+    .kawa-name {
+        font-size: 1.3rem;
+    }
+    
+    .kawa-desc {
+        font-size: 0.8rem;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+    
+    .noticia-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .carteles-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .cartel-card {
+        max-width: 100%;
+    }
+    
+    .cartel-image.vertical {
+        max-height: 400px;
+    }
+    
+    .logo {
+        gap: 0.3rem;
+    }
+    
+    .logo h1 {
+        font-size: 1.3rem;
+    }
+    
+    .logo h2 {
+        font-size: 0.8rem;
+    }
+    
+    /* Kawa-Chan responsive - móvil */
+    .kawa-chan {
+        width: 100px;
+        height: 85px;
+    }
+    
+    .rana-body::before,
+    .rana-body::after {
+        width: 26px;
+        height: 50px;
+        top: 12px;
+    }
+    
+    .rana-body::before { left: 20px; }
+    .rana-body::after { right: 20px; }
+    
+    .pildora-horizontal {
+        width: 85px;
+        height: 28px;
+        bottom: 25px;
+    }
+    
+    .cuerpo-esfera {
+        width: 53px;
+        height: 53px;
+        bottom: -14px;
+        border-width: 2px;
+    }
+    
+    .ojo {
+        width: 28px;
+        height: 28px;
+        border-width: 2px;
+        top: 5px;
+    }
+    
+    .ojo-izq { left: 6px; }
+    .ojo-der { right: 6px; }
+    
+    .pupila {
+        width: 14px;
+        height: 14px;
+    }
+    
+    .brillo {
+        width: 7px;
+        height: 7px;
+    }
+    
+    .boca {
+        width: 10px;
+        height: 5px;
+        border-width: 2px;
+        border-radius: 0 0 10px 10px;
+        bottom: 30px;
+    }
+    
+    .boca::after {
+        width: 6px;
+        height: 3px;
+        border-width: 1px;
+        border-radius: 0 0 6px 6px;
+        top: 1px;
+        bottom: 33px;
+    }
+    
+    .mejilla {
+        width: 10px;
+        height: 8px;
+        top: 45px;
+    }
+    
+    .mejilla-izq { left: 16px; }
+    .mejilla-der { right: 16px; }
+    
+    .boca {
+        width: 12px;
+        height: 6px;
+        border-width: 2px;
+        border-radius: 0 0 12px 12px;
+        bottom: 30px;
+    }
+    
+    .boca::after {
+        width: 8px;
+        height: 4px;
+        border-width: 1px;
+        border-radius: 0 0 8px 8px;
+        top: 1px;
+    }
+    
+    .disfraz {
+        font-size: 1.5rem;
+        top: -2px;
+    }
+    
+    .kawa-name {
+        font-size: 1.1rem;
+    }
+    
+    .kawa-desc {
+        font-size: 0.7rem;
+    }
+    
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+}
+
+/* Animaciones adicionales */
+.fade-in {
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.slide-in-left {
+    animation: slideInLeft 0.6s ease-out;
+}
+
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* Scroll suave */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Efectos de hover mejorados */
+.cartel-card:hover .cartel-image {
+    transform: scale(1.05);
+}
+
+.cartel-image {
+    transition: var(--transition-medium);
+}

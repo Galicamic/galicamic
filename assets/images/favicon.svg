@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Cara de la rana -->
+  <ellipse cx="16" cy="18" rx="14" ry="12" fill="#4CAF50" stroke="#2E7D32" stroke-width="1"/>
+  
+  <!-- Ojos saltones (base blanca) -->
+  <circle cx="10" cy="12" r="6" fill="#FFFFFF" stroke="#2E7D32" stroke-width="1"/>
+  <circle cx="22" cy="12" r="6" fill="#FFFFFF" stroke="#2E7D32" stroke-width="1"/>
+  
+  <!-- Pupilas -->
+  <circle cx="10" cy="12" r="3" fill="#1B5E20"/>
+  <circle cx="22" cy="12" r="3" fill="#1B5E20"/>
+  
+  <!-- Brillos en los ojos -->
+  <circle cx="11" cy="10" r="1.5" fill="#FFFFFF" opacity="0.8"/>
+  <circle cx="23" cy="10" r="1.5" fill="#FFFFFF" opacity="0.8"/>
+  
+  <!-- Nariz (dos pequeños puntos) -->
+  <circle cx="15" cy="16" r="0.8" fill="#2E7D32"/>
+  <circle cx="17" cy="16" r="0.8" fill="#2E7D32"/>
+  
+  <!-- Boca sonriente -->
+  <path d="M 12 20 Q 16 24 20 20" stroke="#2E7D32" stroke-width="2" fill="none" stroke-linecap="round"/>
+  
+  <!-- Mejillas rosadas -->
+  <circle cx="6" cy="18" r="2" fill="#E91E63" opacity="0.3"/>
+  <circle cx="26" cy="18" r="2" fill="#E91E63" opacity="0.3"/>
+  
+  <!-- Sombra debajo de los ojos para dar profundidad -->
+  <ellipse cx="10" cy="14" rx="3" ry="1" fill="#388E3C" opacity="0.3"/>
+  <ellipse cx="22" cy="14" rx="3" ry="1" fill="#388E3C" opacity="0.3"/>
+</svg>

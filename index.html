@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Evento de Anime y Manga - La mejor experiencia otaku en un solo lugar">
+    <meta name="keywords" content="anime, manga, cosplay, evento, otaku, convención">
+    <meta name="author" content="Evento Anime & Manga">
+
+    <title>Evento Anime & Manga 2025</title>
+
+    <!-- Open Graph para redes sociales -->
+    <meta property="og:title" content="Evento Anime & Manga 2026">
+    <meta property="og:description" content="La mejor experiencia otaku en un solo lugar">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="assets/images/og-image.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link rel="apple-touch-icon" href="assets/images/favicon.svg">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Fuentes de Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Noto+Sans+JP:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="logo">
+                    <h1>Galicamic</h1>
+                    <h2>Anime & Manga Event</h2>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#inicio" class="nav-link">Inicio</a></li>
+                    <li><a href="#carteles" class="nav-link">Carteles</a></li>
+                    <li><a href="#noticias" class="nav-link">Noticias</a></li>
+                    <li><a href="#informacion" class="nav-link">Información</a></li>
+                    <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="inicio" class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Galicamic presentado por nuestra mascota Kawa-Chan!</h1>
+                    <p class="hero-subtitle">Nuestra rana cosplayer Kawa-Chan es lo más kawaii del evento, ¿a que sí!? ¿Sabías que Kawa significa río en japonés?</p>
+                    <div class="hero-date">
+                        <span class="date-text">Próximamente</span>
+                    </div>
+                    <button class="cta-button">¡Mantente informado!</button>
+                </div>
+                <div class="hero-animation">
+                    <!-- Kawa-Chan la rana cosplayer interactiva -->
+                    <div class="kawa-chan-container" id="kawaContainer">
+                        <div class="kawa-chan" id="kawaChan">
+                            <!-- Cuerpo base de la rana -->
+                            <div class="rana-body">
+                                <!-- Esfera del cuerpo (detrás de la cabeza) -->
+                                <div class="cuerpo-esfera"></div>
+                                
+                                <!-- Píldora horizontal que conecta las verticales -->
+                                <div class="pildora-horizontal"></div>
+                                
+                                <!-- Ojos saltones -->
+                                <div class="ojo ojo-izq">
+                                    <div class="pupila"></div>
+                                    <div class="brillo"></div>
+                                </div>
+                                <div class="ojo ojo-der">
+                                    <div class="pupila"></div>
+                                    <div class="brillo"></div>
+                                </div>
+                                
+                                <!-- Boca sonriente -->
+                                <div class="boca"></div>
+                                
+                                <!-- Mejillas sonrojadas -->
+                                <div class="mejilla mejilla-izq"></div>
+                                <div class="mejilla mejilla-der"></div>
+                                
+                                <!-- Patitas -->
+                                <div class="pata pata-izq"></div>
+                                <div class="pata pata-der"></div>
+                            </div>
+                            
+                            <!-- Disfraces que cambian con scroll 🍥 -->
+                            <div class="disfraz" id="disfraz" data-costume="naruto">
+                                <div class="costume-naruto"></div>
+                                <div class="costume-goku"></div>
+                                <div class="costume-pikachu"></div>
+                                <div class="costume-totoro"></div>
+                            </div>
+                            
+
+                        </div>
+                        
+                        <!-- Texto informativo -->
+                        <div class="kawa-info">
+                            <p class="kawa-name">Kawa-Chan</p>
+                            <p class="kawa-desc">¡Haz scroll para ver mis disfraces!</p>
+                        </div>
+                    </div>
+                    
+                    <div class="floating-elements">
+                        <div class="element element-1">⭐</div>
+                        <div class="element element-2">🌸</div>
+                        <div class="element element-3">⚡</div>
+                        <div class="element element-4">🎌</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Sección de Carteles -->
+        <section id="carteles" class="carteles-section">
+            <div class="container">
+                <h2 class="section-title">Carteles Promocionales</h2>
+                <div class="carteles-container" id="cartelesContainer">
+                    <!-- Los carteles se cargarán dinámicamente aquí -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- Sección de Noticias -->
+        <section id="noticias" class="noticias-section">
+            <div class="container">
+                <h2 class="section-title">Últimas Noticias</h2>
+                <div class="noticias-container" id="noticiasContainer">
+                    <!-- Las noticias se cargarán dinámicamente aquí -->
+                </div>
+                <button class="load-more-btn" id="loadMoreNews">Ver más noticias</button>
+            </div>
+        </section>
+
+        <!-- Sección de Información -->
+        <section id="informacion" class="info-section">
+            <div class="container">
+                <h2 class="section-title">Información del Evento</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <div class="info-icon">📅</div>
+                        <h3>Fecha</h3>
+                        <p>Primavera 2026<br>Marzo o Abril <br>(día y horarios aún por anunciar)</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">📍</div>
+                        <h3>Ubicación</h3>
+                        <p><strong>CEIP <br> Antonio Gutiérrez Mata</strong><br>
+                            <br>Ctra. de Olias, 48, Málaga-Este, 29018 Málaga
+                        </p>
+                        <a
+                            href="google.com/maps/place//data=!4m2!3m1!1s0xd7259c97ce2b2b9:0x608b07a9568a1144?sa=X&ved=1t:8290&ictx=111">Enlace
+                            a Maps</a>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">🎯</div>
+                        <h3>Actividades</h3>
+                        <p>Cosplay, concursos, stands, Karaoke, conoce gente con tus mismos gustos y mucho más!</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">🎫</div>
+                        <h3>Entradas</h3>
+                        <p>Pronto disponibles <br>Intentaremos que sea entrada gratuita</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contacto" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Evento Anime & Manga Galicamic</h3>
+                    <p>El mejor salón del manga tradicional, hecho por y para otakus OGs</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Enlaces</h4>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#carteles">Carteles</a></li>
+                        <li><a href="#noticias">Noticias</a></li>
+                        <li><a href="#informacion">Información</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Síguenos</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/p/Asociaci%C3%B3n-de-vecinos-G%C3%A1lica-La-Pelusa-100083049575053/"
+                            class="social-link">Facebook</a>
+                        <a href="https://discord.gg/j2AQMnS4fU" class="social-link">Discord</a>
+
+
+
+                    </div> 
+                    <br> 
+                    <div class="contact-info">
+                        <p>📲 TLF: 636-832-831</p>
+                        <p>Atiende llamadas o WhatsApp</p>
+                        <a href="https://wa.me/34636832831" target="_blank" class="whatsapp-link" title="Contactar por WhatsApp">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.488" fill="#25D366"/>
+                            </svg>
+                            Escribir por WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Galicamic Evento Anime & Manga. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript xD -->
+    <script src="script.js"></script>
+</body>
+
+</html>

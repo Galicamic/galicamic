@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertir Favicon SVG a ICO</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .favicon-preview {
+            margin: 20px 0;
+        }
+        .size-preview {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        canvas {
+            border: 1px solid #ccc;
+            margin: 5px;
+        }
+        button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        .instructions {
+            text-align: left;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🐸 Generador de Favicon - Rana Verde</h1>
+        
+        <div class="favicon-preview">
+            <h3>Vista previa del favicon:</h3>
+            <img id="svgPreview" src="favicon.svg" width="64" height="64" alt="Favicon Rana">
+        </div>
+
+        <div class="size-preview">
+            <h4>16x16</h4>
+            <canvas id="canvas16" width="16" height="16"></canvas>
+        </div>
+        
+        <div class="size-preview">
+            <h4>32x32</h4>
+            <canvas id="canvas32" width="32" height="32"></canvas>
+        </div>
+        
+        <div class="size-preview">
+            <h4>48x48</h4>
+            <canvas id="canvas48" width="48" height="48"></canvas>
+        </div>
+
+        <button onclick="generateFavicon()">Generar favicon.ico</button>
+        <button onclick="downloadSVG()">Descargar SVG</button>
+
+        <div class="instructions">
+            <h3>📋 Instrucciones:</h3>
+            <ol>
+                <li><strong>Opción 1 (Recomendada):</strong> El SVG ya funciona como favicon en navegadores modernos</li>
+                <li><strong>Opción 2:</strong> Para generar ICO, haz clic en "Generar favicon.ico"</li>
+                <li><strong>Opción 3:</strong> Usa un convertidor online:
+                    <ul>
+                        <li>Ve a <a href="https://favicon.io/favicon-converter/" target="_blank">favicon.io</a></li>
+                        <li>Sube el archivo favicon.svg</li>
+                        <li>Descarga el favicon.ico generado</li>
+                        <li>Colócalo en la carpeta assets/images/</li>
+                    </ul>
+                </li>
+            </ol>
+            
+            <h4>🎨 Características del favicon:</h4>
+            <ul>
+                <li>✅ Rana verde con ojos saltones</li>
+                <li>✅ Diseño vectorial (SVG) escalable</li>
+                <li>✅ Colores vibrantes y amigables</li>
+                <li>✅ Optimizado para tamaños pequeños</li>
+                <li>✅ Compatible con tema anime/manga</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Cargar y mostrar el SVG en diferentes tamaños
+        function loadSVGToCanvas() {
+            const img = new Image();
+            img.onload = function() {
+                // Canvas 16x16
+                const ctx16 = document.getElementById('canvas16').getContext('2d');
+                ctx16.drawImage(img, 0, 0, 16, 16);
+                
+                // Canvas 32x32
+                const ctx32 = document.getElementById('canvas32').getContext('2d');
+                ctx32.drawImage(img, 0, 0, 32, 32);
+                
+                // Canvas 48x48
+                const ctx48 = document.getElementById('canvas48').getContext('2d');
+                ctx48.drawImage(img, 0, 0, 48, 48);
+            };
+            img.src = 'favicon.svg';
+        }
+
+        // Generar favicon ICO (función básica)
+        function generateFavicon() {
+            // Esta es una implementación básica
+            // Para mejor resultado, usar favicon.io o similar
+            const canvas = document.getElementById('canvas32');
+            const link = document.createElement('a');
+            link.download = 'favicon.ico';
+            link.href = canvas.toDataURL('image/x-icon');
+            link.click();
+            
+            alert('Favicon básico generado. Para mejor calidad, usa favicon.io con el SVG.');
+        }
+
+        // Descargar SVG
+        function downloadSVG() {
+            const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Cara de la rana -->
+  <ellipse cx="16" cy="18" rx="14" ry="12" fill="#4CAF50" stroke="#2E7D32" stroke-width="1"/>
+  
+  <!-- Ojos saltones (base blanca) -->
+  <circle cx="10" cy="12" r="6" fill="#FFFFFF" stroke="#2E7D32" stroke-width="1"/>
+  <circle cx="22" cy="12" r="6" fill="#FFFFFF" stroke="#2E7D32" stroke-width="1"/>
+  
+  <!-- Pupilas -->
+  <circle cx="10" cy="12" r="3" fill="#1B5E20"/>
+  <circle cx="22" cy="12" r="3" fill="#1B5E20"/>
+  
+  <!-- Brillos en los ojos -->
+  <circle cx="11" cy="10" r="1.5" fill="#FFFFFF" opacity="0.8"/>
+  <circle cx="23" cy="10" r="1.5" fill="#FFFFFF" opacity="0.8"/>
+  
+  <!-- Nariz (dos pequeños puntos) -->
+  <circle cx="15" cy="16" r="0.8" fill="#2E7D32"/>
+  <circle cx="17" cy="16" r="0.8" fill="#2E7D32"/>
+  
+  <!-- Boca sonriente -->
+  <path d="M 12 20 Q 16 24 20 20" stroke="#2E7D32" stroke-width="2" fill="none" stroke-linecap="round"/>
+  
+  <!-- Mejillas rosadas -->
+  <circle cx="6" cy="18" r="2" fill="#E91E63" opacity="0.3"/>
+  <circle cx="26" cy="18" r="2" fill="#E91E63" opacity="0.3"/>
+  
+  <!-- Sombra debajo de los ojos para dar profundidad -->
+  <ellipse cx="10" cy="14" rx="3" ry="1" fill="#388E3C" opacity="0.3"/>
+  <ellipse cx="22" cy="14" rx="3" ry="1" fill="#388E3C" opacity="0.3"/>
+</svg>`;
+            
+            const blob = new Blob([svgContent], { type: 'image/svg+xml' });
+            const link = document.createElement('a');
+            link.download = 'favicon.svg';
+            link.href = URL.createObjectURL(blob);
+            link.click();
+        }
+
+        // Cargar al iniciar
+        window.onload = loadSVGToCanvas;
+    </script>
+</body>
+</html>
